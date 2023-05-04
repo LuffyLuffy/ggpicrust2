@@ -47,14 +47,9 @@ pathway_daa <-
       metadata <- tibble::as_tibble(metadata)
     }
     sample_names <- colnames(abundance)
-    matches <-
-      base::lapply(metadata, function(x) {
-        intersect(sample_names, x)
-      })
-    matching_columns <-
-      names(metadata)[sapply(matches, function(x) {
-        length(x) == length(sample_names)
-      })]
+
+    matching_columns<-dplyr::intersect(sample_names,rownames(metadata))
+    metadata_order <- match(sample_names,matching_columns)
     switch(is.null(select),
            "TRUE" = {
              abundance <- abundance
