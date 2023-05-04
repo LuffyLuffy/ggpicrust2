@@ -251,10 +251,7 @@ pathway_daa <-
         LinDA_colnames[LinDA_colnames == group] <-
           "Group_group_nonsense_"
         colnames(LinDA_metadata_df) <- LinDA_colnames
-        rownames(LinDA_metadata_df) <-
-          LinDA_metadata_df[, matching_columns]
-        LinDA_metadata_df <-
-          dplyr::select(LinDA_metadata_df, -matching_columns)
+        
         LinDA_metadata_df$Group_group_nonsense_ <-
           factor(LinDA_metadata_df$Group_group_nonsense_)
         if (length_Level != 2) {
