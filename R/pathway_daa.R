@@ -43,9 +43,7 @@ pathway_daa <-
            select = NULL,
            p.adjust = "BH",
            reference = NULL) {
-    if (!tibble::is_tibble(metadata)) {
-      metadata <- tibble::as_tibble(metadata)
-    }
+
     sample_names <- colnames(abundance)
 
     matching_columns<-dplyr::intersect(sample_names,rownames(metadata))
