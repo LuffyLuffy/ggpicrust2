@@ -61,8 +61,7 @@ pathway_daa <-
            })
     sample_names <- colnames(abundance)
     abundance_mat <- as.matrix(abundance)
-    metadata_order <-
-      match(sample_names, as.matrix(metadata[, matching_columns]))
+    metadata_order <- match(sample_names, rownames(metadata))
     metadata <- metadata[metadata_order,]
     metadata_mat <- as.matrix(metadata)
     metadata_df <- as.data.frame(metadata)
